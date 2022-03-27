@@ -1,0 +1,22 @@
+//  MARK: - NearBy
+"nearbyDevice.info %@ %@ %@" = "%@ %@ with %@";
+
+//  MARK: - Network Status
+"networkDomain.success" = "";
+"networkDomain.client" = "Client";
+"networkDomain.server" = "Server";
+"networkDomain.undefined" = "Undefined";
+"networkError.success" = "Success";
+"networkError.client" = "Network call failed at client C%d";
+"networkError.server" = "Network call failed at server S%d";
+"networkError.undefined" = "Network call failed at undefined U%d";
+"networkError.parametersNil" = "Parameters were nil.";
+"networkError.encodingFailed" = "Parameter encoding failed.";
+"networkError.missingURL" = "URL is nil.";
+"network.host" = "www.google.com";
+
+//  MARK: - Secure Status
+"secureDomain.success" = "";
+"secureDomain.failed" = "Secure Store";
+"secureError.success" = "Success";
+"secureError.failed" = "Secure store call failed to resolve SS%d";

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="copyright" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="explanation" optional="YES" attributeType="String"/>
+        <attribute name="hdurl" optional="YES" attributeType="String"/>
+        <attribute name="mediaType" optional="YES" attributeType="String"/>
+        <attribute name="serviceVersion" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NetworkLog" representedClassName="NetworkLog" syncable="YES" codeGenerationType="class">
+        <attribute name="action" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="result" optional="YES" attributeType="String"/>
+        <attribute name="screenname" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="PictureLastRecord" representedClassName="PictureLastRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="copyright" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="explanation" optional="YES" attributeType="String"/>
+        <attribute name="hdurl" optional="YES" attributeType="String"/>
+        <attribute name="mediaType" optional="YES" attributeType="String"/>
+        <attribute name="serviceVersion" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="NetworkLog" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="PictureLastRecord" positionX="-63" positionY="18" width="128" height="149"/>
+        <element name="Favorite" positionX="-54" positionY="72" width="128" height="149"/>
+    </elements>
+</model>
