@@ -90,12 +90,12 @@ extension Reachability {
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
         self.reachability = nil
     }
-    var isConnectedToNetwork: Bool {
+    public var isConnectedToNetwork: Bool {
         return isReachable &&
         !isConnectionRequiredAndTransientConnection &&
         !(isRunningOnDevice && isWWAN && !isReachableOnWWAN)
     }
-    var isReachableViaWiFi: Bool {
+    public var isReachableViaWiFi: Bool {
         return isReachable && isRunningOnDevice && !isWWAN
     }
     

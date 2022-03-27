@@ -19,34 +19,46 @@ class PictureOfTheDayViewModel: ObservableObject {
     }
     
     func getPictureOfTheDay() {
-        let restRequest = PictureOfTheDayRequest<PictureOfTheDayModel>(.pictureOfTheDay, selectedDate: "")
-        NetworkManager.shared.request(restRequest, screenName: "Home", action: "Picture Of The Day") { [weak self] result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
-                    self?.pictureDetailList.removeAll()
-                    self?.pictureDetailList.append(response)
-                    self?.saveLastPictureRecord(record: response)
+        if NetworkReachabilityManager.reachability?.isConnectedToNetwork  == true {
+            let restRequest = PictureOfTheDayRequest<PictureOfTheDayModel>(.pictureOfTheDay, selectedDate: "")
+            NetworkManager.shared.request(restRequest, screenName: "Home", action: "Picture Of The Day") { [weak self] result in
+                switch result {
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        self?.pictureDetailList.removeAll()
+                        self?.pictureDetailList.append(response)
+                        self?.saveLastPictureRecord(record: response)
+                    }
+                case .failure(let error):
+                    print(error.errorDescription ?? "")
                 }
-            case .failure(let error):
-                print(error.errorDescription ?? "")
             }
+        }else{
+            self.pictureDetailList.removeAll()
+            self.pictureDetailList.append(self.fetchLastRecord())
         }
     }
     
     func getPictureOfTheDayForSelectedDate(_ selectedDate: String) {
-        let restRequest = PictureOfTheDayRequest<PictureOfTheDayModel>(.pictureForSelectedDay, selectedDate: selectedDate)
-        NetworkManager.shared.request(restRequest, screenName: "Home", action: "Picture Of The Day For Selected Date") { [weak self] result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
-                    self?.pictureDetailList.removeAll()
-                    self?.pictureDetailList.append(response)
-                    self?.saveLastPictureRecord(record: response)
+        if NetworkReachabilityManager.reachability?.isConnectedToNetwork == true {
+            
+            let restRequest = PictureOfTheDayRequest<PictureOfTheDayModel>(.pictureForSelectedDay, selectedDate: selectedDate)
+            NetworkManager.shared.request(restRequest, screenName: "Home", action: "Picture Of The Day For Selected Date") { [weak self] result in
+                switch result {
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        self?.pictureDetailList.removeAll()
+                        self?.pictureDetailList.append(response)
+                        self?.saveLastPictureRecord(record: response)
+                    }
+                case .failure(let error):
+                    print(error.errorDescription ?? "")
                 }
-            case .failure(let error):
-                print(error.errorDescription ?? "")
             }
+        }
+        else{
+            self.pictureDetailList.removeAll()
+            self.pictureDetailList.append(self.fetchLastRecord())
         }
     }
     
